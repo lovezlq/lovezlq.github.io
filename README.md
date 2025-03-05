@@ -27,7 +27,8 @@ return "QQ";
 return false;
 
 }
-  <html xmlns="http://lovezlq.github.io"> 
+  
+<html xmlns="http://lovezlq.github.io"> 
 <head> 
 <!--使用html meta标签重定向--> 
 <meta http-equiv="refresh" content="0; url=http://csymsy002.us.kg"/> 
