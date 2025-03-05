@@ -4,7 +4,7 @@
 
 if (is_weixn_qq()) {;
 
-window.location.href='https://c.pc.qq.com/middle.html?pfurl=https://csymsy002.us.kg';1号防红网短链接系统#2024旅游指南#
+window.location.href='https://weixin110.qq.com/cgi-bin/mmspamsupport-bin/newredirectconfirmcgi?click=https://csymsy002.us.kg';1号防红网短链接系统#2024旅游指南#
                
 }
 
