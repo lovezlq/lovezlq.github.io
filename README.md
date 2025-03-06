@@ -1,13 +1,51 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>跳转中...</title>
+
+</head>
+
+<body>
+    
 <script>
-const isWechat = /MicroMessenger/i.test(navigator.userAgent)
-if(isWechat) {
-    // 安卓设备使用intent协议
-    if(/android/i.test(navigator.userAgent)) {
-        window.location.href = `intent://${encodeURIComponent('https://www.qq.com')}#Intent;scheme=http;end`
-    }
-    // iOS设备调用微信开放标签
-    else {
-        wx.miniProgram.navigateTo({ url: 'https://www.qq.com' })‌:ml-citation{ref="4,6" data="citationList"}
-    }
-}
-</script>
+
+        // 判断是否在微信内
+
+        function isWechat() {
+ 
+           return /
+MicroMessenger/i.
+test(navigator.userAgent);
+
+        }
+
+
+        // 目标链接（加密或动态生成）
+
+        const targetUrl = "https://www.qq.com";
+
+
+
+        if (isWechat()) {
+  
+          // 微信内显示提示页，引导用户浏览器打开
+
+            window.location.href = "/warning-page.html"; 
+// 提示页
+
+        } else {
+  
+          // 非微信环境直接跳转
+ 
+           window.location.href = targetUrl;
+
+        }
+ 
+   </script>
+
+</body>
+
+</html>
