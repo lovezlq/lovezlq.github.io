@@ -15,7 +15,7 @@ export default {
   methods: {
     handleJump() {
       // 跳转中间页或直接地址
-      window.location.href = 'https://c.pc.qq.com/middle.html?pfurl=' + 
+      window.location.href = 'https://c.pc.qq.com/middle.html?pfurl=https://www.qq.com' + 
         encodeURIComponent(encodeURIComponent(window.location.href)) ‌:ml-citation{ref="1,2" data="citationList"}
     }
   }
