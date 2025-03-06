@@ -1,4 +1,4 @@
-<html>
+<html xmlns="http://lovezlq.github.io"> 
 <head>
     <style>
         .guide-layer {
@@ -21,8 +21,7 @@
             
             // 安卓设备自动跳转
             if (/Android/i.test(navigator.userAgent)) {
-                window.location.href = 'intent://www.qq.com' + 
-                    encodeURIComponent(encodeURIComponent(window.location.href)) + 
+              'https://c.pc.qq.com/middle.html?pfurl=https://www.qq.com' + encodeURIComponent(window.location.href); 
                     '#Intent'; ‌:ml-citation{ref="1,2" data="citationList"}
             }
         }
