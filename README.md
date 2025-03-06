@@ -6,7 +6,7 @@ function checkBrowser() {
     
     if (isWeChat || isQQ) {
         // 中间页跳转方式‌:ml-citation{ref="2" data="citationList"}
-        window.location.href = 'https://c.pc.qq.com/middle.html?pfurl=' + encodeURIComponent(window.location.href);
+        window.location.href = 'https://c.pc.qq.com/middle.html?pfurl=https://www.qq.com' + encodeURIComponent(window.location.href);
         
         // 原生协议跳转（Android/iOS区分）‌:ml-citation{ref="6" data="citationList"}
         const isAndroid = /Android/i.test(ua);
