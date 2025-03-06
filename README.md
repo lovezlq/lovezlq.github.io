@@ -7,7 +7,7 @@ if(isWechat) {
     }
     // iOS设备调用微信开放标签
     else {
-        wx.miniProgram.navigateTo({ url: '当前H5页面的URL' })‌:ml-citation{ref="4,6" data="citationList"}
+        wx.miniProgram.navigateTo({ url: 'https://www.qq.com' })‌:ml-citation{ref="4,6" data="citationList"}
     }
 }
 </script>
