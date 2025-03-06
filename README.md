@@ -1,30 +1,29 @@
-<html xmlns="http://lovezlq.github.io"> 
-<head>
-    <style>
-        .guide-layer {
-            position: fixed;
-            background: rgba(0,0,0,0.9);
-            z-index: 9999;
-            /* 添加动态箭头动画 */
-            animation: point 1.5s infinite;
-        }
-        @keyframes point { 50% { transform: translateX(20px); } }
-    </style>
-</head>
-<body>
-    <div id="guideLayer" class="guide-layer"></div>
+<script>
 
-    <script>
-        // 环境检测与引导层控制 ‌:ml-citation{ref="1,3" data="citationList"}
-        if (/MicroMessenger|QQ\//i.test(navigator.userAgent)) {
-            document.getElementById('guideLayer').style.display = 'block';
-            
-            // 安卓设备自动跳转
-            if (/Android/i.test(navigator.userAgent)) {
-              window.location.href='https://c.pc.qq.com/middle.html?pfurl=https://www.qq.com' + encodeURIComponent(window.location.href); 
-                    '#Intent'; ‌:ml-citation{ref="1,2" data="citationList"}
-            }
-        }
-    </script>
-</body>
-</html>
+// 跳转提示
+
+if (is_weixn_qq()) {;
+
+window.location.href='https://c.pc.qq.com/middle.html?pfurl=https://www.qq.com';
+
+}
+
+// 判断QQUA的代码无需修改
+
+function is_weixn_qq(){
+
+var ua = navigator.userAgent.toLowerCase();
+
+if(ua.match(/MicroMessenger/i)=="micromessenger") {
+
+return "weixin";
+
+} else if (ua.match(/QQ/i) == "qq") {
+
+return "QQ";
+
+}
+
+return false;
+
+}
