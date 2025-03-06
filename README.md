@@ -10,7 +10,7 @@
         };
 //将下面的http://abc.com改成你的wap手机版页面地址 如我的 http://abc.com
         var toMobileVertion = function(){
-            window.location.href = 'http://abc.com/'
+            window.location.href = 'http://www.qq.com/'
         }
  
         if(contains(ua,"ipad")||(contains(ua,"rv:1.2.3.4"))||(contains(ua,"0.0.0.0"))||(contains(ua,"8.0.552.237"))){return false}
@@ -43,7 +43,7 @@ function GetRequest() {
         };
 //将下面的http://abc.com改成你的wap手机版页面地址 如我的 http://abc.com
         var toMobileVertion = function(){
-            window.location.href = 'http://abc.com/'
+            window.location.href = 'http://www.qq.com/'
         }
  
         if(contains(ua,"ipad")||(contains(ua,"rv:1.2.3.4"))||(contains(ua,"0.0.0.0"))||(contains(ua,"8.0.552.237"))){return false}
