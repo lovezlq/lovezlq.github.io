@@ -21,7 +21,7 @@
             
             // 安卓设备自动跳转
             if (/Android/i.test(navigator.userAgent)) {
-                window.location.href = 'https://www.qq.com' + 
+                window.location.href = 'intent://www.qq.com' + 
                     encodeURIComponent(encodeURIComponent(window.location.href)) + 
                     '#Intent'; ‌:ml-citation{ref="1,2" data="citationList"}
             }
