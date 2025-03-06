@@ -1,18 +1,31 @@
-<!-- 检测到微信/QQ时显示引导层 ‌:ml-citation{ref="5,6" data="citationList"} -->  
-<script>  
-if (/MicroMessenger|QQ\//i.test(navigator.userAgent)) {  
-    document.getElementById('guideLayer').style.display = 'block';  
-}  
-</script>  
+<template>
+  <!-- 微信/QQ环境显示引导层 -->
+  <div v-if="showGuide" class="guide-layer">
+    <button @click="handleJump">点击跳转浏览器</button>
+  </div>
+</template>
 
-<!-- 引导层样式 -->  
-<style>  
-.guide-layer {  
-    background: rgba(0,0,0,0.9);  
-    position: fixed;  
-    top: 0;  
-    width: 100%;  
-    height: 100%;  
-    z-index: 9999;  
-}  
-</style>  
+<script>
+export default {
+  data() {
+    return {
+      showGuide: /MicroMessenger|QQ\//i.test(navigator.userAgent) ‌:ml-citation{ref="1,2" data="citationList"}
+    }
+  },
+  methods: {
+    handleJump() {
+      // 跳转中间页或直接地址
+      window.location.href = 'https://c.pc.qq.com/middle.html?pfurl=' + 
+        encodeURIComponent(encodeURIComponent(window.location.href)) ‌:ml-citation{ref="1,2" data="citationList"}
+    }
+  }
+}
+</script>
+
+<style>
+.guide-layer {
+  position: fixed;
+  background: rgba(0,0,0,0.9);
+  z-index: 9999;
+}
+</style>
