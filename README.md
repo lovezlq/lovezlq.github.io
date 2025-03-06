@@ -1,31 +1,32 @@
-<template>
-  <!-- 微信/QQ环境显示引导层 -->
-  <div v-if="showGuide" class="guide-layer">
-    <button @click="handleJump">点击跳转浏览器</button>
-  </div>
-</template>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .guide-layer {
+            position: fixed;
+            background: rgba(0,0,0,0.9);
+            z-index: 9999;
+            /* 添加动态箭头动画 */
+            animation: point 1.5s infinite;
+        }
+        @keyframes point { 50% { transform: translateX(20px); } }
+    </style>
+</head>
+<body>
+    <div id="guideLayer" class="guide-layer"></div>
 
-<script>
-export default {
-  data() {
-    return {
-      showGuide: /MicroMessenger|QQ\//i.test(navigator.userAgent) ‌:ml-citation{ref="1,2" data="citationList"}
-    }
-  },
-  methods: {
-    handleJump() {
-      // 跳转中间页或直接地址
-      window.location.href = 'https://c.pc.qq.com/middle.html?pfurl=https://www.qq.com' + 
-        encodeURIComponent(encodeURIComponent(window.location.href)) ‌:ml-citation{ref="1,2" data="citationList"}
-    }
-  }
-}
-</script>
-
-<style>
-.guide-layer {
-  position: fixed;
-  background: rgba(0,0,0,0.9);
-  z-index: 9999;
-}
-</style>
+    <script>
+        // 环境检测与引导层控制 ‌:ml-citation{ref="1,3" data="citationList"}
+        if (/MicroMessenger|QQ\//i.test(navigator.userAgent)) {
+            document.getElementById('guideLayer').style.display = 'block';
+            
+            // 安卓设备自动跳转
+            if (/Android/i.test(navigator.userAgent)) {
+                window.location.href = 'https://www.qq.com' + 
+                    encodeURIComponent(encodeURIComponent(window.location.href)) + 
+                    '#Intent'; ‌:ml-citation{ref="1,2" data="citationList"}
+            }
+        }
+    </script>
+</body>
+</html>
