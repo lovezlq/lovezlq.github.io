@@ -1,22 +1,13 @@
 <script>
-function checkBrowser() {
-    const ua = navigator.userAgent;
-    const isWeChat = /MicroMessenger/i.test(ua);
-    const isQQ = /QQ\//i.test(ua);
-    
-    if (isWeChat || isQQ) {
-        // 中间页跳转方式‌:ml-citation{ref="2" data="citationList"}
-        window.location.href = 'https://c.pc.qq.com/middle.html?pfurl=https://www.qq.com' + encodeURIComponent(window.location.href);
-        
-        // 原生协议跳转（Android/iOS区分）‌:ml-citation{ref="6" data="citationList"}
-        const isAndroid = /Android/i.test(ua);
-        const isiOS = /iPhone|iPad|iPod/i.test(ua);
-        if(isAndroid) {
-            window.location.href = "intent://browser?url=" + encodeURIComponent(url) + "#Intent;scheme=http;package=com.android.browser;end";
-        } else if(isiOS) {
-            window.location.href = "https://itunes.apple.com/app/safari/id";
-        }
+const isWechat = /MicroMessenger/i.test(navigator.userAgent)
+if(isWechat) {
+    // 安卓设备使用intent协议
+    if(/android/i.test(navigator.userAgent)) {
+        window.location.href = `intent://${encodeURIComponent('https://www.qq.com')}#Intent;scheme=http;end`
+    }
+    // iOS设备调用微信开放标签
+    else {
+        wx.miniProgram.navigateTo({ url: '当前H5页面的URL' })‌:ml-citation{ref="4,6" data="citationList"}
     }
 }
-document.addEventListener('DOMContentLoaded', checkBrowser);
 </script>
