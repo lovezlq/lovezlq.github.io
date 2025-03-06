@@ -1,37 +1,15 @@
-<html xmlns="http://lovezlq.github.io"> 
-<head> 
-<!--使用html meta标签重定向--> 
- 
-function checkBrowser() {
-    const ua = navigator.userAgent;
-    const isWeChat = /MicroMessenger/i.test(ua);
-    const isQQ = /QQ\//i.test(ua);  
-  if (isWeChat || isQQ) {
-        // 中间页跳转方式‌:ml-citation{ref="2" data="citationList"}
-   
-<meta http-equiv="refresh" content="0; url=http://www.qq.com"/> 
-...
-<script type="text/javascript">
+<!-- 微信环境显示引导提示 ‌:ml-citation{ref="3,4" data="citationList"} -->
+<div class="wx-guide" v-if="isWeixin">
+    <div class="arrow-icon"></div>
+    <p>点击右上角<br/>选择「在浏览器打开」</p>
+</div>
 
- document.addEventListener('DOMContentLoaded', checkBrowser);
- 
-   
-    window.location.href = 'https://c.pc.qq.com/middle.html?pfurl=https://www.qq.com' + encodeURIComponent(window.location.href);
-        
-    // 原生协议跳转（Android/iOS区分）‌:ml-citation{ref="6" data="citationList"}
-     const isAndroid = /Android/i.test(ua);
-     const isiOS = /iPhone|iPad|iPod/i.test(ua);
-      if(isAndroid) {
-        window.location.href = "https://c.pc.qq.com/middle.html?pfurl=https://www.qq.com" + encodeURIComponent(url) + "#Intent;scheme=http;package=com.android.browser;end";
-        } else if(isiOS) {
-            window.location.href = "https://itunes.apple.com/app/safari/id";
-        }
-    }
+<style>
+.wx-guide {
+    position: fixed;
+    background: rgba(0,0,0,0.85);
+    color: #fff;
+    text-align: center;
+    z-index: 9999;
 }
-
-
- 
-</script>
-</head>
-...
-
+</style>
