@@ -1,5 +1,4 @@
 <html>
-<head>
 // 点击按钮触发跳转检测 ‌:ml-citation{ref="5,7" data="citationList"}
 document.getElementById('downloadBtn').addEventListener('click', () => {
     if (isWeixin || isQQ) {
@@ -8,5 +7,4 @@ document.getElementById('downloadBtn').addEventListener('click', () => {
         directDownload(); // 直接执行操作
     }
 });
-</script>
 </head>
