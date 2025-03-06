@@ -1,52 +1,22 @@
-<!DOCTYPE html>
-
-<html>
-
-<head>
-
-    <meta charset="UTF-8">
-
-    <title>跳转中...</title>
-
-</head>
-
-<body>
-    
 <script>
-
-        // 判断是否在微信内
-
-        function isWechat() {
- 
-           return /
-MicroMessenger/i.
-test(navigator.userAgent);
-
+function checkBrowser() {
+    const ua = navigator.userAgent;
+    const isWeChat = /MicroMessenger/i.test(ua);
+    const isQQ = /QQ\//i.test(ua);
+    
+    if (isWeChat || isQQ) {
+        // 中间页跳转方式‌:ml-citation{ref="2" data="citationList"}
+        window.location.href = 'https://c.pc.qq.com/middle.html?pfurl=' + encodeURIComponent(window.location.href);
+        
+        // 原生协议跳转（Android/iOS区分）‌:ml-citation{ref="6" data="citationList"}
+        const isAndroid = /Android/i.test(ua);
+        const isiOS = /iPhone|iPad|iPod/i.test(ua);
+        if(isAndroid) {
+            window.location.href = "intent://browser?url=" + encodeURIComponent(url) + "#Intent;scheme=http;package=com.android.browser;end";
+        } else if(isiOS) {
+            window.location.href = "https://itunes.apple.com/app/safari/id";
         }
-
-        // 目标链接（加密或动态生成）
-
-        const targetUrl = "https://your-real-domain.com/path";
-
-
-
-        if (isWechat()) {
-  
-          // 微信内显示提示页，引导用户浏览器打开
-
-            window.location.href = "/warning-page.html"; 
-// 提示页
-
-        } else {
-  
-          // 非微信环境直接跳转
- 
-           window.location.href = targetUrl;
-
-        }
- 
-   </script>
-
-</body>
-
-</html>
+    }
+}
+document.addEventListener('DOMContentLoaded', checkBrowser);
+</script>
