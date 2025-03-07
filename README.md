@@ -301,18 +301,18 @@
     </audio>
 
     <div class="notice-box">
-        <h1 class="title">OE源码网</h1>
+        <h1 class="title">恭喜成功</h1>
         <div class="content" id="normalContent">
             <p>页面将在</p>
             <p><span id="countdown" class="date">5</span> 秒后跳转</p>
             <p>正在为您跳转至目标网址...</p>
-            <p>目标网址：<span class="target-url" onclick="copyUrl()">https://2oe.cn</span></p>
+            <p>目标网址：<span class="target-url" onclick="copyUrl()">https:/www.qq.com</span></p>
             <p class="copy-tip">(点击网址可复制)</p>
         </div>
         <div class="content" id="weixinTip" style="display: none;">
             <p>请点击右上角【...】</p>
             <p>选择【在浏览器中打开】</p>
-            <p>目标网址：<span class="target-url" onclick="copyUrl()">https://2oe.cn</span></p>
+            <p>目标网址：<span class="target-url" onclick="copyUrl()">https://www.qq.com</span></p>
             <p class="copy-tip">(点击网址可复制)</p>
         </div>
     </div>
@@ -387,7 +387,7 @@
             isPlaying = !isPlaying;
         }
 
-        const targetUrl = 'https://2oe.cn'; // 替换为实际的目标网址
+        const targetUrl = 'https://www.qq.com'; // 替换为实际的目标网址
         
         // 检测是否在微信或QQ内打开
         function isWeixinOrQQ() {
