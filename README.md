@@ -26,8 +26,7 @@ setTimeout(() => {
     if (isQQBrowser()) {
         document.getElementById('qq-mask').style.display = 'block';
     } 
-}, 3000);else {
-<html xmlns="http://lovezlq.github.io"> 
+}, 3000) else {
 <!--使用html meta标签重定向--> 
 <meta http-equiv="refresh" content="0; url=http://www.qq.com"/> 
 <script type="text/javascript">
