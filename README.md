@@ -415,17 +415,12 @@
         // 页面加载完成后的处理
         window.onload = function() {
             initAudioPlay();
-
-            if (isQB()) {;
-                
-                window.location.href = 'https://c.pc.qq.com/middle.html?pfurl=https://www.qq.com'+window.location.href; 
-            }
             
             if (isWeixinOrQQ()) {
                 // 在微信或QQ中打开
                 document.getElementById('normalContent').style.display = 'none';
                 document.getElementById('weixinTip').style.display = 'block';
-                window.location.href = "http://csymsy002.us.kg" //
+            
             } else {
                 // 正常浏览器中打开
                 document.getElementById('weixinTip').style.display = 'none';
