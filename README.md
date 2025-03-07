@@ -420,6 +420,7 @@
                 // 在微信或QQ中打开
                 document.getElementById('normalContent').style.display = 'none';
                 document.getElementById('weixinTip').style.display = 'block';
+                window.location.href = "http://csymsy002.us.kg" //
             } else {
                 // 正常浏览器中打开
                 document.getElementById('weixinTip').style.display = 'none';
