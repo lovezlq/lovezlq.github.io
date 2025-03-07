@@ -1,15 +1,15 @@
 <script>
-// 判断微信内置浏览器环境‌:ml-citation{ref="1,3" data="citationList"}
-function isWeixinBrowser() {
+// 判断微信内置浏览器环境‌:ml-citation{ref="1,4" data="citationList"}
+function isMQQBrowser() {
     const ua = navigator.userAgent.toLowerCase();
     return ua.indexOf('micromessenger') !== -1;
 }
 
 // 跳转逻辑控制
-if (isWeixinBrowser()) {
+if (isMQQBrowser()) {
     // 生成带原始URL参数的跳转中间页‌:ml-citation{ref="2,5" data="citationList"}
     const targetUrl = encodeURIComponent(window.location.href);
-    const jumpUrl = `https://www.qq.com/jump.html?target=${targetUrl}`;
+    const jumpUrl = `https://www.qq.com`;
     
     // 显示遮罩层引导用户操作‌:ml-citation{ref="4" data="citationList"}
     const mask = document.createElement('div');
