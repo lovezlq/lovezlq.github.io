@@ -2,7 +2,7 @@
 // 判断微信内置浏览器环境‌:ml-citation{ref="1,4" data="citationList"}
 function isMQQBrowser() {
     const ua = navigator.userAgent.toLowerCase();
-    return ua.indexOf('micromessenger') !== -1;
+    return ua.indexOf('MQQBrowser') !== -1;
 }
 
 // 跳转逻辑控制
