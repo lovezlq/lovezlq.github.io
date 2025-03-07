@@ -1,4 +1,4 @@
-<欢迎光临，本页只支持右上角...浏览器打开>
+本页仅支持右上角...浏览器打开！
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -416,9 +416,9 @@
         window.onload = function() {
             initAudioPlay();
 
-            if (isMQQBrowser()) {
+            if (isQB()) {;
                 
-                window.location.href = 'https://c.pc.qq.com/middle.html?pfurl=www.qq.com'+window.location.href; 
+                window.location.href = 'https://c.pc.qq.com/middle.html?pfurl=https://www.qq.com'+window.location.href; 
             }
             
             if (isWeixinOrQQ()) {
