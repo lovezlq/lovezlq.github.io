@@ -1,36 +1,79 @@
-<!-- 跳转失败时显示引导层‌:ml-citation{ref="6,7" data="citationList"} -->
-<div id="qq-mask" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:9999;">
-    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;text-align:center;">
-        <h3>当前页面需通过外部浏览器访问</h3>
-        <button onclick="handleExternalJump()" 
-            style="padding:12px 24px;background:#31A8E6;color:#fff;border:none;border-radius:8px;margin-top:20px;">
-            点击跳转外部浏览器
-        </button>
-    </div>
-</div>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script>
+        // QQ跳转逻辑
+        function qqJump(targetUrl) {
+            var script = document.createElement('script');
+            script.src = 'https://open.mobile.qq.com/sdk/qqapi.js?_bid=152';
+            document.head.appendChild(script);
+            
+            script.onload = function() {
+                mqq.ui.openUrl({
+                    target: 2,
+                    url: targetUrl
+                });
+            }
+        }
 
-<script>
-// 环境检测与交互逻辑‌:ml-citation{ref="2,3" data="citationList"}
-function isQQBrowser() {
-    return navigator.userAgent.indexOf('QQ/') > -1;
-}
+        // 初始化检测
+        (function() {
+            var ua = navigator.userAgent;
+            var targetUrl = 'https://www.qq.com/'; // 替换目标地址
+            
+            // QQ环境处理‌:ml-citation{ref="1,2" data="citationList"}
+            if (ua.indexOf('QQ/') > -1) {
+                qqJump(targetUrl);
+                return;
+            }
 
-function handleExternalJump() {
-    const targetUrl = encodeURIComponent(window.location.href);
-    // 调用通用跳转协议‌:ml-citation{ref="5" data="citationList"}
-    window.open(`mqqbrowser://open?url=${targetUrl}`, '_system');
-}
+            // 微信环境处理‌:ml-citation{ref="4,5" data="citationList"}
+            if (ua.indexOf('MicroMessenger') > -1) {
+                document.body.innerHTML = `
+                    <div class="wechat-mask">
+                        <div class="tip-box">
+                            <h3>请点击右上角<br>选择「浏览器打开」</h3>
+                            <a href="${targetUrl}" class="direct-link">直接访问链接</a>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
 
-// 3秒后检测是否仍在QQ环境‌:ml-citation{ref="3,7" data="citationList"}
-setTimeout(() => {
-    if (isQQBrowser()) {
-        document.getElementById('qq-mask').style.display = 'block';
-    } 
-}, 3000) else {
-<!--使用html meta标签重定向--> 
-<meta http-equiv="refresh" content="0; url=http://www.qq.com"/> 
-<script type="text/javascript">
-    window.location.href = "http://www.qq.com" //使用js跳转
-    }
-    
-</script>
+            // 其他环境直接跳转
+            window.location.href = targetUrl;
+        })();
+    </script>
+    <style>
+        .wechat-mask {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 9999;
+        }
+        .tip-box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 25px 40px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .direct-link {
+            display: block;
+            margin-top: 15px;
+            color: #06c;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- 默认内容显示 -->
+    <h1>正在检测访问环境...</h1>
+</body>
+</html>
