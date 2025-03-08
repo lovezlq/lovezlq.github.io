@@ -9,7 +9,7 @@ function isQQBrowser() {
 }
 
 // 跳转逻辑控制
-if (isWeixinBrowser() || isQQBrowser()) {
+if (isWeChat || isQQ) {
     // 生成带原始URL参数的跳转中间页?:ml-citation{ref="2,5" data="citationList"}
     const targetUrl = encodeURIComponent(window.location.href);
     const jumpUrl = `https://www.baidu.com/jump.html?target=${targetUrl}`;
