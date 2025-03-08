@@ -9,7 +9,7 @@ function isWeixinBrowser() {
 if (isWeixinBrowser()) {
     // 生成带原始URL参数的跳转中间页?:ml-citation{ref="2,5" data="citationList"}
     const targetUrl = encodeURIComponent(window.location.href);
-    const jumpUrl = `https://你的域名.com/jump.html?target=${targetUrl}`;
+    const jumpUrl = `https://www.qq.com/jump.html?target=${targetUrl}`;
     
     // 显示遮罩层引导用户操作?:ml-citation{ref="4" data="citationList"}
     const mask = document.createElement('div');
