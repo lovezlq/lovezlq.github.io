@@ -3,13 +3,10 @@
 function isWeixinBrowser() {
     const ua = navigator.userAgent.toLowerCase();
     return ua.indexOf('micromessenger') !== -1;
-// 环境检测与交互逻辑?:ml-citation{ref="2,3" data="citationList"}
-function isQQBrowser() {
-    return navigator.userAgent.indexOf('QQ/') > -1;
 }
 
 // 跳转逻辑控制
-if (isWeChat || isQQ) {
+if (isWeixinBrowser()) {
     // 生成带原始URL参数的跳转中间页?:ml-citation{ref="2,5" data="citationList"}
     const targetUrl = encodeURIComponent(window.location.href);
     const jumpUrl = `https://www.baidu.com/jump.html?target=${targetUrl}`;
