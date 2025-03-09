@@ -72,11 +72,7 @@
                 document.execCommand('copy');
                 document.body.removeChild(input);
                 alert('链接已复制，请粘贴到浏览器打开');
-            } else { 
-		<script type="text/javascript">
-
-                window.location.href = "http://www.baidu.com" //使用js跳转
-	    } 
+            } 
         } 
 
     </script>
