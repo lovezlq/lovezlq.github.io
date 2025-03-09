@@ -55,8 +55,6 @@
                 normalDiv.classList.remove('hidden');
                 tipDiv.classList.add('hidden');
 
-		<script type="text/javascript">
-
                 window.location.href = "http://www.baidu.com" //使用js跳转
             }
         }
