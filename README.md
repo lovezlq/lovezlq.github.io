@@ -1,80 +1,76 @@
-<html>
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>请使用外部浏览器打开</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>环境检测示例</title>
     <style>
-        .browser-mask {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .browser-alert {
-            background: white;
+        .browser-tip {
             padding: 20px;
-            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background: #f8f9fa;
             text-align: center;
-            max-width: 80%;
+            margin: 50px auto;
+            max-width: 600px;
         }
-        .browser-alert button {
-            background: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            margin: 10px;
-            cursor: pointer;
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
-    <!-- 正常网页内容 -->
-    
+    <!-- 默认显示的内容（非QQ/微信环境可见） -->
+    <div id="normalContent">
+        <h1>欢迎访问正常页面</h1>
+        <p>当前为浏览器环境，可完整浏览内容。</p>
+    </div>
+
+    <!-- 仅在QQ/微信内显示的提示（默认隐藏） -->
+    <div id="qqWechatTip" class="hidden">
+        <div class="browser-tip">
+            <h2>⚠️ 检测到您在QQ/微信内打开</h2>
+            <p>请点击右上角菜单，选择「在浏览器打开」以获得最佳体验</p>
+            <button onclick="copyUrl()">复制链接</button>
+        </div>
+    </div>
+
     <script>
-        // 检测QQ和微信内置浏览器
-        const ua = navigator.userAgent.toLowerCase();
-        const isWeChat = /micromessenger/.test(ua);
-        const isQQ = /qq\//.test(ua) || /mobile\s*QB/.test(ua);
-        <!--使用html meta标签重定向--> 
-        <meta http-equiv="refresh" content="0; url=http://www.baidu.com"/> 
+        // 检测是否在QQ或微信内置浏览器中
+        function isInQQWechat() {
+            const ua = navigator.userAgent.toLowerCase();
+            return ua.match(/qq\//i) || ua.match(/micromessenger\//i);
+        }
 
-        if (isWeChat || isQQ) {
-            // 创建提示遮罩层
-            const mask = document.createElement('div');
-            mask.className = 'browser-mask';
-            mask.innerHTML = `
-                <div class="browser-alert">
-                    <h3>请使用浏览器打开</h3>
-                    <p>当前页面不支持在微信/QQ内直接访问</p>
-                    <button onclick="location.href='https://www.baidu.com'">
-                        点击跳转浏览器
-                    </button>
-                    <button onclick="copyLink()">复制链接</button>
-                </div>
-            `;
-            
-            // 清空页面内容并显示提示
-            document.body.innerHTML = '';
-            document.body.appendChild(mask);
-            
-            // 复制链接功能
-            function copyLink() {
-                const input = document.createElement('input');
-                input.value = window.location.href;
-                document.body.appendChild(input);
-                input.select();
-                document.execCommand('copy');
-                document.body.removeChild(input);
-                alert('链接已复制，请粘贴到浏览器打开');
-            } 
-        } 
+        // 根据环境显示/隐藏内容
+        function checkBrowserEnv() {
+            const normalDiv = document.getElementById('normalContent');
+            const tipDiv = document.getElementById('qqWechatTip');
 
+            if (isInQQWechat()) {
+                // 如果是QQ/微信环境：隐藏正常内容，显示提示
+                normalDiv.classList.add('hidden');
+                tipDiv.classList.remove('hidden');
+            } else {
+                // 非QQ/微信环境：正常显示内容
+                normalDiv.classList.remove('hidden');
+                tipDiv.classList.add('hidden');
+            }
+        }
+
+        // 复制当前链接（用于提示页按钮）
+        function copyUrl() {
+            const input = document.createElement('input');
+            input.value = window.location.href;
+            document.body.appendChild(input);
+            input.select();
+            document.execCommand('copy');
+            document.body.removeChild(input);
+            alert('链接已复制到剪贴板');
+        }
+
+        // 页面加载时立即检测
+        checkBrowserEnv();
     </script>
 </body>
 </html>
