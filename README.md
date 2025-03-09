@@ -1,4 +1,4 @@
-<html xmlns="http://www.baidu.com">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>请使用外部浏览器打开</title>
@@ -75,7 +75,7 @@
             } else { 
 		<script type="text/javascript">
 
-                window.location.href = "http://example2.com" //使用js跳转
+                window.location.href = "http://www.baidu.com" //使用js跳转
 	    } 
         } 
 
