@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -55,6 +54,10 @@
                 // 非QQ/微信环境：正常显示内容
                 normalDiv.classList.remove('hidden');
                 tipDiv.classList.add('hidden');
+
+		<script type="text/javascript">
+
+                window.location.href = "http://www.baidu.com" //使用js跳转
             }
         }
 
