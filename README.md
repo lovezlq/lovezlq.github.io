@@ -1,4 +1,4 @@
-<html xmlns="http://lovezlq.github.io">
+<html xmlns="http://www.baidu.com">
 <head>
     <meta charset="UTF-8">
     <title>请使用外部浏览器打开</title>
