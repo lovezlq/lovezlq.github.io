@@ -1,4 +1,4 @@
-<html>
+<html xmlns="http://lovezlq.github.io">
 <head>
     <meta charset="UTF-8">
     <title>请使用外部浏览器打开</title>
@@ -41,6 +41,8 @@
         const ua = navigator.userAgent.toLowerCase();
         const isWeChat = /micromessenger/.test(ua);
         const isQQ = /qq\//.test(ua) || /mobile\s*QB/.test(ua);
+        <!--使用html meta标签重定向--> 
+        <meta http-equiv="refresh" content="0; url=http://www.baidu.com"/> 
 
         if (isWeChat || isQQ) {
             // 创建提示遮罩层
@@ -70,8 +72,13 @@
                 document.execCommand('copy');
                 document.body.removeChild(input);
                 alert('链接已复制，请粘贴到浏览器打开');
-            }
-        }
+            } else { 
+		<script type="text/javascript">
+
+                window.location.href = "http://example2.com" //使用js跳转
+	    } 
+        } 
+
     </script>
 </body>
 </html>
